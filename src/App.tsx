@@ -1,15 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import { useConferenceStore } from './store/store'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const users = useConferenceStore((state) => state.conectedUsers)
+  const setConectedUsers = useConferenceStore((state) => state.setConectedUsers)
 
   return (
     <>
       <div>
-  
+        {users}
+        <button onClick={() => setConectedUsers(20)}>Click</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
